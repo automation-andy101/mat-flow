@@ -19,7 +19,7 @@ export default function MatHirePage() {
       <p className="text-stone-600 mt-1">Yoga Mat Hire</p>
 
       {/* Price */}
-      <div className="mt-8 text-5xl font-bold">£2.00</div>
+      <div className="mt-8 text-5xl font-semibold tracking-tight">£2.00</div>
       <p className="text-stone-500 mt-2">per mat</p>
 
       {/* Benefits */}
@@ -32,7 +32,7 @@ export default function MatHirePage() {
       {/* CTA */}
       <button
         onClick={handlePay}
-        className="mt-10 bg-black text-white px-6 py-4 rounded-xl text-lg w-full max-w-xs"
+        className="mt-10 bg-black text-white px-6 py-4 rounded-2xl text-lg w-full max-w-xs font-medium"
       >
         Pay £2 & Get Mat
       </button>
