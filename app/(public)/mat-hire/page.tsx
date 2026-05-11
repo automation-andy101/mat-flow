@@ -32,7 +32,7 @@ export default function MatHirePage() {
       {/* CTA */}
       <button
         onClick={handlePay}
-        className="mt-10 bg-black text-white px-6 py-4 rounded-2xl text-lg w-full max-w-xs font-medium"
+        className="mt-10 bg-black text-white px-6 py-4 rounded-2xl text-lg w-full max-w-xs font-medium cursor-pointer"
       >
         Pay £2 & Get Mat
       </button>
