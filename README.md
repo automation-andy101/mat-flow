@@ -46,3 +46,40 @@ lib/
   utils.ts
   models/
     MatHire.ts
+```
+
+# 🚀 Getting Started
+
+## 1. Clone the repository
+
+```bash
+git clone https://github.com/yourusername/matflow.git
+cd matflow
+```
+
+## 2. Install dependencies
+```bash
+npm install
+```
+
+## 3. Add environment variables
+```bash
+Create a .env.local file:
+
+STRIPE_SECRET_KEY=your_stripe_secret
+NEXT_PUBLIC_URL=http://localhost:3000
+MONGODB_URI=your_mongo_connection
+```
+
+## 4. Run the development server
+```bash
+npm run dev
+```
+
+
+
+
+
+
+
+
