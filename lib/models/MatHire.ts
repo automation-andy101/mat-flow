@@ -3,7 +3,6 @@ import mongoose from 'mongoose'
 const MatHireSchema = new mongoose.Schema({
   sessionId: {
     type: String,
-    required: true,
   },
 
   amount: {
@@ -13,12 +12,18 @@ const MatHireSchema = new mongoose.Schema({
 
   currency: {
     type: String,
+    default: 'gbp',
+  },
+
+  paymentMethod: {
+    type: String,
+    enum: ['stripe', 'cash', 'card'],
     required: true,
   },
 
-  paymentStatus: {
-    type: String,
-    required: true,
+  paid: {
+    type: Boolean,
+    default: true,
   },
 
   createdAt: {

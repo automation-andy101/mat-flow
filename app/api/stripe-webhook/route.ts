@@ -37,10 +37,10 @@ export async function POST(req: Request) {
       // Save transaction
       await MatHire.create({
         sessionId: session.id,
-        amount: session.amount_subtotal,
+        amount: session.amount_total,
         currency: session.currency,
-        paymentStatus: session.payment_status,
-        createdAt: new Date(),
+        paymentMethod: 'stripe',
+        paid: true,
       })
 
       console.log('✅ Payment successful!', session)

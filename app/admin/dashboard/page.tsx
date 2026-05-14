@@ -1,3 +1,4 @@
+import { createCashPayment } from '@/app/actions/createCashPayment'
 import connectDB from '@/lib/db'
 import MatHireModel from '@/lib/models/MatHire'
 
@@ -25,6 +26,29 @@ export default async function DashboardPage() {
     (total, payment) => total + payment.amount,
     0
   )
+
+  const stripePayments = await MatHireModel.countDocuments({
+    paymentMethod: 'stripe',
+    createdAt: {
+      $gte: startOfToday,
+    },
+  })
+
+  const cashPayments = await MatHireModel.countDocuments({
+    paymentMethod: 'cash',
+    createdAt: {
+      $gte: startOfToday,
+    },
+  })
+
+  const recentPayments = await MatHireModel
+    .find({
+      createdAt: {
+        $gte: startOfToday,
+      },
+    })
+    .sort({ createdAt: -1 })
+    .limit(10)
 
   return (
     <div className="min-h-screen bg-stone-50 px-6 py-12">
@@ -76,7 +100,100 @@ export default async function DashboardPage() {
           </h2>
         </div>
 
+        {/* Stripe Payments */}
+        <div className="bg-white rounded-2xl p-6 shadow-sm border border-stone-200">
+          <p className="text-stone-500 text-sm">
+            Stripe Payments
+          </p>
+
+          <h2 className="mt-2 text-4xl font-semibold">
+            {stripePayments}
+          </h2>
+        </div>
+
+        {/* Cash Payments */}
+        <div className="bg-white rounded-2xl p-6 shadow-sm border border-stone-200">
+          <p className="text-stone-500 text-sm">
+            Cash Payments
+          </p>
+
+          <h2 className="mt-2 text-4xl font-semibold">
+            {cashPayments}
+          </h2>
+        </div>
+
       </div>
+
+      <div className="mt-8 max-w-md mx-auto">
+        <form action={createCashPayment}>
+          <button
+            type="submit"
+            className="w-full bg-black text-white py-4 rounded-2xl font-medium cursor-pointer"
+          >
+            + Record £2 Cash Payment
+          </button>
+        </form>
+      </div>
+
+      <div className="mt-10 max-w-md mx-auto">
+
+        <h2 className="text-lg font-semibold mb-4">
+          Recent Payments
+        </h2>
+
+        {/* Empty State */}
+        {recentPayments.length === 0 && (
+          <div className="bg-white rounded-2xl p-6 border border-stone-200 text-center text-stone-500">
+            No payments yet today
+          </div>
+        )}
+
+        <div className="space-y-3">
+
+          {recentPayments.map((payment) => (
+            <div
+              key={payment._id.toString()}
+              className="bg-white rounded-2xl p-4 border border-stone-200 flex items-center justify-between"
+            >
+
+              <div>
+                <p className="font-medium capitalize">
+                  <span className="flex items-center gap-2">
+
+                    <span
+                      className={`w-2 h-2 rounded-full ${
+                        payment.paymentMethod === 'cash'
+                          ? 'bg-orange-400'
+                          : 'bg-green-500'
+                      }`}
+                    />
+
+                    {payment.paymentMethod}
+
+                  </span>
+                </p>
+
+                <p className="text-sm text-stone-500">
+                  {new Date(payment.createdAt).toLocaleTimeString([], {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                  })}
+                </p>
+              </div>
+
+              <p className="font-semibold">
+                £{(payment.amount / 100).toFixed(2)}
+              </p>
+
+            </div>
+
+          ))}
+
+        </div>
+
+      </div>
+
+      
 
     </div>
   )
