@@ -1,12 +1,33 @@
-export default function SuccessPage() {
+import Stripe from 'stripe'
 
-  // Temporary MVP values
-  // Later these will come from Stripe session data
-  const reference = "MF-7K2P"
-  const paidAt = new Date().toLocaleTimeString([], {
+const stripe = new Stripe(
+  process.env.STRIPE_SECRET_KEY!
+)
+
+type SuccessPageProps = {
+  searchParams: Promise<{
+    session_id?: string
+  }>
+}
+
+export default async function SuccessPage({
+  searchParams,
+}: SuccessPageProps) {
+
+  const { session_id } = await searchParams;
+
+  if (!session_id) {
+    return <div>Missing session</div>
+  }
+
+   const session = await stripe.checkout.sessions.retrieve(session_id);
+
+  const reference = session.id.slice(-6).toUpperCase()
+
+  const paidAt = new Date(session.created * 1000).toLocaleTimeString([], {
     hour: '2-digit',
     minute: '2-digit',
-  })
+  });
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-stone-50 px-6 text-center">
