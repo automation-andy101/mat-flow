@@ -1,4 +1,5 @@
 import { createCashPayment } from '@/app/actions/createCashPayment'
+import RecordCashPaymentButton from '@/components/record-cash-payment-button'
 import connectDB from '@/lib/db'
 import MatHireModel from '@/lib/models/MatHire'
 
@@ -125,14 +126,15 @@ export default async function DashboardPage() {
       </div>
 
       <div className="mt-8 max-w-md mx-auto">
-        <form action={createCashPayment}>
-          <button
+        {/* <form action={createCashPayment}> */}
+          <RecordCashPaymentButton />
+          {/* <button
             type="submit"
             className="w-full bg-black text-white py-4 rounded-2xl font-medium cursor-pointer"
           >
             + Record £2 Cash Payment
-          </button>
-        </form>
+          </button> */}
+        {/* </form> */}
       </div>
 
       <div className="mt-10 max-w-md mx-auto">
