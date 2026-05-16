@@ -65,8 +65,14 @@ export default async function DashboardPage() {
         </p>
       </div>
 
+      {/* Cash payment button */}
+      <div className="sticky top-4 z-10 mt-8 max-w-md mx-auto">
+      {/* <div className="mt-8 max-w-md mx-auto"> */}
+        <RecordCashPaymentButton />
+      </div>
+
       {/* Stats */}
-      <div className="mt-12 grid gap-6 max-w-md mx-auto">
+      <div className="mt-8 grid gap-6 max-w-md mx-auto">
 
         {/* Mats Hired */}
         <div className="bg-white rounded-2xl p-6 shadow-sm border border-stone-200">
@@ -125,9 +131,9 @@ export default async function DashboardPage() {
 
       </div>
 
-      <div className="mt-8 max-w-md mx-auto">
+      {/* <div className="mt-8 max-w-md mx-auto">
           <RecordCashPaymentButton />
-      </div>
+      </div> */}
 
       <div className="mt-10 max-w-md mx-auto">
 
