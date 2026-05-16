@@ -63,12 +63,28 @@ export default async function DashboardPage() {
         <p className="text-stone-500 mt-2">
           Today’s studio activity
         </p>
+
+        <p className="text-stone-400 mt-1 text-sm">
+          {new Date().toLocaleDateString('en-GB', {
+            weekday: 'long',
+            day: 'numeric',
+            month: 'long',
+          })}
+        </p>
       </div>
 
       {/* Cash payment button */}
-      <div className="sticky top-4 z-10 mt-8 max-w-md mx-auto">
-      {/* <div className="mt-8 max-w-md mx-auto"> */}
+      <div className="sticky top-4 z-10 mt-8 max-w-md mx-auto space-y-3">
         <RecordCashPaymentButton />
+
+        <a
+          href="/qr"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block w-full text-center bg-white border border-stone-200 py-4 rounded-2xl font-medium hover:bg-stone-100 transition"
+        >
+          Open QR Code
+        </a>
       </div>
 
       {/* Stats */}

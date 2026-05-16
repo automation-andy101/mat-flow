@@ -15,7 +15,7 @@ export default function RecordCashPaymentButton() {
         })
       }
       disabled={isPending}
-      className="w-full bg-black text-white py-4 rounded-2xl font-medium disabled:opacity-50"
+      className="w-full bg-black text-white py-4 rounded-2xl font-medium disabled:opacity-50 cursor-pointer"
     >
       {isPending
         ? 'Recording Payment...'
