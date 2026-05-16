@@ -41,6 +41,16 @@ export default function QRPage() {
           No app download required
         </p>
 
+        <p className="mt-6 text-xs text-stone-400 text-center">
+          Staff access ·{" "}
+          <a
+            href="/admin/sign-in"
+            className="underline hover:text-stone-600 hover:bg-stone-200/50 px-1 py-0.5 rounded transition"
+          >
+            Sign in
+          </a>
+        </p>
+
       </div>
 
     </div>
