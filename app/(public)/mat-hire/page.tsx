@@ -41,6 +41,9 @@ export default function MatHirePage() {
       <p className="mt-6 text-xs text-stone-400">
         Show confirmation at reception
       </p>
+      <p className="mt-10 text-xs text-stone-400">
+        Staff? <a href="/sign-in" className="underline">Sign in</a>
+      </p>
     </div>
   )
 }
