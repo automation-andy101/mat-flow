@@ -85,6 +85,9 @@ export default async function SuccessPage({
         Thank you for using MatFlow 🧘
       </p>
 
+      <p className="text-xs text-stone-400 text-center mt-8">
+        Powered by Divine Development
+      </p>
     </div>
   )
 }

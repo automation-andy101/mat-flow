@@ -53,6 +53,10 @@ export default function QRPage() {
 
       </div>
 
+      <p className="text-xs text-stone-400 text-center mt-8">
+        Powered by Divine Development
+      </p>
     </div>
+    
   )
 }

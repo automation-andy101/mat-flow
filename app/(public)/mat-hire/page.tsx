@@ -55,6 +55,10 @@ export default function MatHirePage() {
           Sign in
         </a>
       </p>
+
+      <p className="text-xs text-stone-400 text-center mt-8">
+        Powered by Divine Development
+      </p>
     </div>
   )
 }
