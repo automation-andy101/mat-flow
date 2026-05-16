@@ -93,7 +93,7 @@ export default async function DashboardPage() {
         {/* Mats Hired */}
         <div className="bg-white rounded-2xl p-6 shadow-sm border border-stone-200">
           <p className="text-stone-500 text-sm">
-            Mats Hired Today
+            Total Mat Rentals Today
           </p>
 
           <h2 className="mt-2 text-4xl font-semibold">
@@ -102,7 +102,7 @@ export default async function DashboardPage() {
         </div>
 
         {/* Payments */}
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-stone-200">
+        {/* <div className="bg-white rounded-2xl p-6 shadow-sm border border-stone-200">
           <p className="text-stone-500 text-sm">
             Payments Today
           </p>
@@ -110,7 +110,7 @@ export default async function DashboardPage() {
           <h2 className="mt-2 text-4xl font-semibold">
             {paymentsToday.length}
           </h2>
-        </div>
+        </div> */}
 
         {/* Revenue */}
         <div className="bg-white rounded-2xl p-6 shadow-sm border border-stone-200">
