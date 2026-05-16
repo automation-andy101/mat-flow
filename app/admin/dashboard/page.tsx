@@ -126,15 +126,7 @@ export default async function DashboardPage() {
       </div>
 
       <div className="mt-8 max-w-md mx-auto">
-        {/* <form action={createCashPayment}> */}
           <RecordCashPaymentButton />
-          {/* <button
-            type="submit"
-            className="w-full bg-black text-white py-4 rounded-2xl font-medium cursor-pointer"
-          >
-            + Record £2 Cash Payment
-          </button> */}
-        {/* </form> */}
       </div>
 
       <div className="mt-10 max-w-md mx-auto">
